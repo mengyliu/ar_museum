@@ -9,7 +9,7 @@
   <body>   
     <a-scene>
       <a-assets>
-        <img id="tile" src="./images/marbleTile.jpg">
+        <img id="tile" src="./images/wood.jpg">
         <img id="menu" src="./images/menu.jpg">
       </a-assets>
       <!-- Controls -->
@@ -25,7 +25,7 @@
       <a-sky color="#fff" material="color:#fff;shader:flat" geometry="primitive:sphere;radius:5000;segmentsWidth:64;segmentsHeight:64" scale="-1 1 1"></a-sky>
       
       <!-- ground -->
-      <a-entity material="src:#tile; repeat:25 50.4; metalness:0.1;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
+      <a-entity material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
 
       <!-- monet -->
       <a-entity>
