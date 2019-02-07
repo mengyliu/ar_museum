@@ -22,7 +22,7 @@
         </a-entity>
       </a-entity>
       <!-- sky -->
-      <a-sky color="#fff" material="color:#fff;shader:flat" geometry="primitive:sphere;radius:5000;segmentsWidth:64;segmentsHeight:64" scale="-1 1 1"></a-sky>
+      <a-sky color="#c4c7ca"></a-sky>
       
       <!-- ground -->
       <a-entity material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
@@ -116,10 +116,10 @@
       </a-entity>
 
       <!-- walls -->
-      <a-plane color="#CCC" src="./images/wall.jpg" position="0 0 4" height="13" width="8"></a-plane>     
+      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 0 4" height="13" width="8"></a-plane>     
       <a-plane color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="4 0 0" height="13" width="8"></a-plane>
       <a-plane color="#CCC" src="./images/wall.jpg" position="0 0 -4" height="13" width="8"></a-plane>
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="-4 0 0" height="13" width="8"></a-plane>
+      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 -90 0" position="-4 0 0" height="13" width="8"></a-plane>
 
     </a-scene>
     <script src="./js/script.js"></script>
