@@ -3,17 +3,18 @@
 
 "use strict";
 
+
+//get random position
+//get random rotation
+//add to the scene
+
 document.addEventListener('DOMContentLoaded', function() {
+
+
   var pictures = document.querySelectorAll(".picture");
 
   var setPictureEvent = function(picture) {
     var artist = picture.id;
-    var menu = document.querySelector('#' + artist + 'Menu');
-    var menu1 = menu.querySelector(".menu1");
-    var menu2 = menu.querySelector(".menu2");
-    var menu3 = menu.querySelector(".menu3");
-    var close = menu.querySelector(".close");
-
     picture.addEventListener('mouseenter',function(){
       var artist = this.id;
       if (artist) {
@@ -29,62 +30,27 @@ document.addEventListener('DOMContentLoaded', function() {
         panel.setAttribute('visible','false');
       }
     });
-
-    picture.addEventListener('click',function(){
-      var artist = this.id;
-      var menu = document.querySelector('#' + artist + 'Menu');
-      if(menu.getAttribute('visible')) return;
-      menu.querySelector('.menu1').emit('show');
-      menu.querySelector('.menu2').emit('show');
-      menu.querySelector('.menu3').emit('show');
-      menu.querySelector('.close').emit('show');
-      menu.setAttribute('visible','true');
-    });
-
-    menu1.addEventListener('mouseenter',function(){
-      menu1.setAttribute('color','#CCC');
-      menu2.setAttribute('color','#FFF');
-      menu3.setAttribute('color','#FFF');
-    });
-
-    menu1.addEventListener('mouseleave',function(){
-      menu1.setAttribute('color','#FFF');
-    });
-
-    menu2.addEventListener('mouseenter',function(){
-      menu1.setAttribute('color','#FFF');
-      menu2.setAttribute('color','#CCC');
-      menu3.setAttribute('color','#FFF');
-    });
-
-    menu2.addEventListener('mouseleave',function(){
-      menu2.setAttribute('color','#FFF');
-    });
-
-    menu3.addEventListener('mouseenter',function(){
-      menu1.setAttribute('color','#FFF');
-      menu2.setAttribute('color','#FFF');
-      menu3.setAttribute('color','#CCC');
-    });
-
-    menu3.addEventListener('mouseleave',function(){
-      menu3.setAttribute('color','#FFF');
-    });
-
-    close.addEventListener('mouseenter',function(){
-      menu1.setAttribute('color','#FFF');
-      menu2.setAttribute('color','#FFF');
-      menu3.setAttribute('color','#FFF');
-    });
-    
-    close.addEventListener('click',function(){
-      this.parentNode.setAttribute('visible','false');
-    });
   }
+  pictures.forEach(p => setPictureEvent(p))
 
-  var picture;
-  for (var i = 0, pictureNum = pictures.length; i < pictureNum; i++) {
-    picture = pictures[i];
-    setPictureEvent(picture);
+  let cameraRig = document.querySelector("#camera-rig");
+  let camera = document.querySelector("#camera");
+  let waypoint = document.querySelector("#waypoint");
+
+  //attach gaze fuse handle to waypoint
+  waypoint.addEventListener("click", function(e) {
+    console.log("haha")
+    // move the camera rig to the new location
+    cameraRig.setAttribute("position", "0 1.8 0");
+  });
+
+
+  var sunflowers = document.querySelectorAll(".sunflower");
+  var setSunflowerEvent = function(sunflower) {
+    sunflower.addEventListener('click', function(e) {
+      sunflower.setAttribute("dynamic-body","true");
+    })
   }
+  sunflowers.forEach(s => setSunflowerEvent(s))
+
 });

@@ -6,6 +6,7 @@
 <!--     <script src="./js/libs/aframe.min.js"></script> -->
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>   
     <a-scene>
@@ -13,34 +14,34 @@
         <img id="tile" src="./images/wood.jpg">
         <img id="menu" src="./images/menu.jpg">
       </a-assets>
+
+      <a-asset-item id="sunflower-gltf" src="./models/sunflower/scene.gltf"></a-asset-item>
+
       <!-- Controls -->
-      <a-entity id="camera" position="0 1.8 0">
-        <a-entity camera look-controls>
+      <a-entity id="camera-rig" position="0 1.8 10">
+        <a-entity camera id="camera" look-controls wasd-controls>
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
-                    material="color: #A6AAF4; shader: flat">
+                    material="color: white; shader: flat">
           </a-entity>
         </a-entity>
       </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
 
-
-      <!-- models -->
-      <a-asset-item id="sunflower-gltf" src="./models/sunflower/scene.gltf"></a-asset-item>
-
       <!-- sunflower -->
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.105 0.691 6.126" rotation="0 -19 0"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.957 0.250 6.522" rotation="0 -34.688 0"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.275 0.071 6.652" rotation="0 -26.832 0"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.526 -0.061 6.161"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.900 0.071 5.515" rotation="0 39.300 0"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.3 0.64 5.515" rotation="0 12.640 0"></a-entity>
-      <a-entity gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.947 0.5 5.769" rotation="0 13.695 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.105 0.866 6.126" rotation="0 -19 0" ></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.90 0.8 6.126" rotation="0 -19 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.957 0.250 6.522" rotation="0 -34.688 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.275 0.071 6.652" rotation="0 -26.832 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.526 -0.061 6.161"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.900 0.071 5.515" rotation="0 39.300 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.3 0.64 5.515" rotation="0 12.640 0"></a-entity>
+      <a-entity class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.947 0.5 5.769" rotation="0 13.695 0"></a-entity>
 
       
       <!-- ground -->
-      <a-entity material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
+      <a-entity static-body click-drag material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
 
       <!-- monet -->
       <a-entity>
@@ -50,21 +51,6 @@
             <a-text value="Mengyao" position="-0.442 -0.058 0.237" color="#A0A0A0"></a-text>
           </a-plane> -->
         </a-plane>
-
-        <a-entity id="monetMenu" visible="false" position="0 2.6 -3.8">
-          <a-plane class="menu1" color="#FFF" src="./images/menu1.jpg" position="1.6 0.65 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="300"></a-animation>
-          </a-plane>
-          <a-plane class="menu2" color="#FFF" src="./images/menu2.jpg" position="1.6 0.3 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="400"></a-animation>
-          </a-plane>
-          <a-plane class="menu3" color="#FFF" src="./images/menu3.jpg" position="1.6 -0.05 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="500"></a-animation>
-          </a-plane>
-          <a-plane class="close" color="#FFF" src="./images/close.jpg" position="1.6 -0.4 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="600"></a-animation>
-          </a-plane>
-        </a-entity>
       </a-entity>
 
       <!-- renoir -->
@@ -73,21 +59,6 @@
           <a-plane id="renoirPanel" visible="false" color="#FFF" src="./images/renoir_panel.jpg" position="-1.85 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
         </a-plane>
       </a-entity>
-      <a-entity id="renoirMenu" visible="false" rotation="0 90 0" position="-3.8 2.6 0">
-          <a-plane class="menu1" color="#FFF" src="./images/menu1.jpg" position="1.6 0.65 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="300"></a-animation>
-          </a-plane>
-          <a-plane class="menu2" color="#FFF" src="./images/menu2.jpg" position="1.6 0.3 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="400"></a-animation>
-          </a-plane>
-          <a-plane class="menu3" color="#FFF" src="./images/menu3.jpg" position="1.6 -0.05 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="500"></a-animation>
-          </a-plane>
-          <a-plane class="close" color="#FFF" src="./images/close.jpg" position="1.6 -0.4 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="600"></a-animation>
-          </a-plane>
-        </a-entity>
-      </a-entity>
 
       <!-- gogh -->
       <a-entity>
@@ -95,36 +66,21 @@
           <a-plane id="goghPanel" visible="false" color="#FFF" src="./images/gogh_panel.jpg" position="-2.1 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
         </a-plane>
       </a-entity>
-      <a-entity id="goghMenu" visible="false" rotation="0 -90 0" position="2.4 2 0">
-          <a-plane class="menu1" color="#FFF" src="./images/menu1.jpg" position="1.6 0.65 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="300"></a-animation>
-          </a-plane>
-          <a-plane class="menu2" color="#FFF" src="./images/menu2.jpg" position="1.6 0.3 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="400"></a-animation>
-          </a-plane>
-          <a-plane class="menu3" color="#FFF" src="./images/menu3.jpg" position="1.6 -0.05 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="500"></a-animation>
-          </a-plane>
-          <a-plane class="close" color="#FFF" src="./images/close.jpg" position="1.6 -0.4 0.1" rotation="0 -10 0" height="0.3" width="1.5">
-            <a-animation begin="show" attribute="rotation" from="0 0 0" to="0 -10 0" dur="600"></a-animation>
-          </a-plane>
-        </a-entity>
-      </a-entity>
 
 
       <!-- walls -->
-<!--       <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 0 4" height="13" width="8"></a-plane>     --> 
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="2.5 2.5 4" height="5" width="3"></a-plane> 
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="-2.5 2.5 4" height="5" width="3"></a-plane> 
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 4.5 4" height="1" width="2"></a-plane>        
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="4 2.5 0" height="5" width="8"></a-plane>
-      <a-plane color="#CCC" src="./images/wall.jpg" position="0 2.5 -4" height="5" width="8"></a-plane>
-      <a-plane color="#CCC" src="./images/wall.jpg" rotation="180 -90 0" position="-4 2.5 0" height="5" width="8"></a-plane>
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="2.5 2.5 4" height="5" depth="0.1" width="3"></a-box> 
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="-2.5 2.5 4" height="5" depth="0.1" width="3"></a-box> 
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 4.5 4" height="1" depth="0.1" width="2"></a-box>        
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="4 2.5 0" height="5" depth="0.1" width="8"></a-box>
+      <a-box static-body color="#CCC" src="./images/wall.jpg" position="0 2.5 -4" height="5" depth="0.1" width="8"></a-box>
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 -90 0" position="-4 2.5 0" height="5" depth="0.1" width="8"></a-box>
 
 
       <a-box position="2 1 6" rotation="0 -10 0" color="#000" depth="0.5" height="2" width="2">
-        <a-plane color="#FFF" src="./images/logo.jpg" position="0 0 0.26" height="2" width="2"></a-plane>
+        <a-plane color="#FFF" src="./images/logo.png" position="0 0 0.26" height="2" width="2"></a-plane>
       </a-box>
+      <a-cylinder id="waypoint" color="grey" height="0.05" radius="0.5" position="0 0 -0.438"></a-cylinder>
       
 
     </a-scene>
