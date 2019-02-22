@@ -7,9 +7,11 @@
     <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v5.0.0/dist/aframe-extras.min.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
   </head>
   <body>   
     <a-scene>
+      <a-entity environment="preset: forest; lightPosition: -0.629 5.702 11.724; groundColor: #445; grid: cross"></a-entity>
       <a-assets>
         <img id="tile" src="./images/wood.jpg">
         <img id="menu" src="./images/menu.jpg">
@@ -41,7 +43,7 @@
 
       
       <!-- ground -->
-      <a-entity static-body click-drag material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20"></a-entity>
+      <a-entity id="groud" static-body click-drag material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0.01 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20" scale="0.4, 0.4, 1"></a-entity>
 
       <!-- monet -->
       <a-entity>
