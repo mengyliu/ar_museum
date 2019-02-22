@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  var sunflowers = document.querySelectorAll(".sunflower");
+  // var sunflowers = document.querySelectorAll(".sunflower");
   // var setSunflowerEvent = function(sunflower) {
   //   sunflower.addEventListener('click', function(e) {
   //     sunflower.setAttribute("dynamic-body","true");
@@ -53,4 +53,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // }
   // sunflowers.forEach(s => setSunflowerEvent(s))
 
+
+  var els = document.querySelectorAll(".sunflower");
+  els.forEach(function(el) {
+    document.addEventListener("dragstart", function() {
+      el.removeAttribute("dynamic-body");
+    });
+    document.addEventListener("dragend", function() {
+      el.setAttribute("dynamic-body", "");
+    });
+  });
 });
