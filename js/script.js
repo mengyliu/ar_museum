@@ -58,9 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
   els.forEach(function(el) {
     document.addEventListener("dragstart", function() {
       el.removeAttribute("dynamic-body");
+      console.log("remove")
     });
     document.addEventListener("dragend", function() {
-      el.setAttribute("dynamic-body", "");
+      el.setAttribute("dynamic-body", "true");
+      console.log("add dynamic-body")
     });
   });
 });
