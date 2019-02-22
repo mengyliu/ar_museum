@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   var sunflowers = document.querySelectorAll(".sunflower");
-  var setSunflowerEvent = function(sunflower) {
-    sunflower.addEventListener('click', function(e) {
-      sunflower.setAttribute("dynamic-body","true");
-    })
-  }
-  sunflowers.forEach(s => setSunflowerEvent(s))
+  // var setSunflowerEvent = function(sunflower) {
+  //   sunflower.addEventListener('click', function(e) {
+  //     sunflower.setAttribute("dynamic-body","true");
+  //   })
+  // }
+  // sunflowers.forEach(s => setSunflowerEvent(s))
 
 });
