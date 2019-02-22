@@ -45,24 +45,24 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
 
-  // var sunflowers = document.querySelectorAll(".sunflower");
-  // var setSunflowerEvent = function(sunflower) {
-  //   sunflower.addEventListener('click', function(e) {
-  //     sunflower.setAttribute("dynamic-body","true");
-  //   })
-  // }
-  // sunflowers.forEach(s => setSunflowerEvent(s))
+  var sunflowers = document.querySelectorAll(".sunflower");
+  var setSunflowerEvent = function(sunflower) {
+    sunflower.addEventListener('click', function(e) {
+      sunflower.setAttribute("dynamic-body","true");
+    })
+  }
+  sunflowers.forEach(s => setSunflowerEvent(s))
 
 
-  var els = document.querySelectorAll(".sunflower");
-  els.forEach(function(el) {
-    document.addEventListener("dragstart", function() {
-      el.removeAttribute("dynamic-body");
-      console.log("remove")
-    });
-    document.addEventListener("dragend", function() {
-      el.setAttribute("dynamic-body", "true");
-      console.log("add dynamic-body")
-    });
-  });
+  // var els = document.querySelectorAll(".sunflower");
+  // els.forEach(function(el) {
+  //   document.addEventListener("dragstart", function() {
+  //     el.removeAttribute("dynamic-body");
+  //     console.log("remove")
+  //   });
+  //   document.addEventListener("dragend", function() {
+  //     el.setAttribute("dynamic-body", "true");
+  //     console.log("add dynamic-body")
+  //   });
+  // });
 });
