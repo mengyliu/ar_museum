@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   pictures.forEach(p => setPictureEvent(p))
 
-  let cameraRig = document.querySelector("#camera-rig");
+  let cameraRig = document.querySelector("#cameraRig");
   let camera = document.querySelector("#camera");
   let waypoint = document.querySelector("#waypoint");
 
