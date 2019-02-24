@@ -9,7 +9,6 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-    <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>   
     <a-scene>
@@ -22,18 +21,23 @@
       <a-asset-item id="sunflower-gltf" src="./models/sunflower/scene.gltf"></a-asset-item>
       <a-entity id="light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
       <!-- Controls -->
-      <a-entity id="cameraRig" position="0 1.8 10">
+<!--       <a-entity id="cameraRig" position="0 1.8 10">
         <a-entity camera id="head" look-controls wasd-controls>
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                     material="color: white; shader: flat">
           </a-entity>
         </a-entity>
-        <!-- hand controls -->
         <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+        <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+      </a-entity> -->
+      <a-entity id="cameraRig">
+      <!-- camera -->
+      <a-entity id="head" camera wasd-controls look-controls></a-entity>
+      <!-- hand controls -->
+      <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
       <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
-        </a-entity>
-      
+    </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
 
