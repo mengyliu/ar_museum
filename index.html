@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.0.1/dist/aframe-event-set-component.min.js"></script>
   </head>
   <body>   
     <a-scene>
@@ -26,21 +27,13 @@
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                     material="color: white; shader: flat">
+          </a-entity>
         </a-entity>
         <!-- hand controls -->
-        <a-entity teleport-controls="startEvents: teleportstart; endEvents: teleportend"
-        vive-controls="hand: left"
-        oculus-touch-controls="hand: left"
-        microsoft-motion-controls="hand: left"
-        daydream-controls="left" gearvr-controls="left">
-      </a-entity>
-      <a-entity teleport-controls="startEvents: teleportstart; endEvents: teleportend; type: line"
-        vive-controls="hand: right"
-        microsoft-motion-controls="hand: right"
-        oculus-touch-controls="hand: right"
-        daydream-controls="right" gearvr-controls="right">
-      </a-entity>
-      </a-entity>
+        <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
+      <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
+        </a-entity>
+      
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
 
