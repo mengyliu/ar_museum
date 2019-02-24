@@ -31,12 +31,12 @@
         <a-entity id="left-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
         <a-entity id="right-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
       </a-entity> -->
-      <a-entity id="cameraRig">
+      <a-entity id="cameraRig" position="0 1.5 10">
       <!-- camera -->
       <a-entity id="head" camera wasd-controls look-controls></a-entity>
       <!-- hand controls -->
-      <a-entity id="left-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
-      <a-entity id="right-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+      <a-entity id="left-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+      <a-entity id="right-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
     </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
