@@ -26,9 +26,20 @@
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                     material="color: white; shader: flat">
-          </a-entity>
-          <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
-      <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+        </a-entity>
+        <!-- hand controls -->
+        <a-entity teleport-controls="startEvents: teleportstart; endEvents: teleportend"
+        vive-controls="hand: left"
+        oculus-touch-controls="hand: left"
+        microsoft-motion-controls="hand: left"
+        daydream-controls="left" gearvr-controls="left">
+      </a-entity>
+      <a-entity teleport-controls="startEvents: teleportstart; endEvents: teleportend; type: line"
+        vive-controls="hand: right"
+        microsoft-motion-controls="hand: right"
+        oculus-touch-controls="hand: right"
+        daydream-controls="right" gearvr-controls="right">
+      </a-entity>
       </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
