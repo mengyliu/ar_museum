@@ -11,11 +11,12 @@
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
   </head>
   <body>   
-    <a-scene>
+    <a-scene sound="src: #museum; on: click; loop: true; volume: 0.2; rolloffFactor: 0">
       <a-entity environment="preset: forest; lightPosition: -0.629 5.702 11.724; groundColor: #445; grid: cross"></a-entity>
       <a-assets>
         <img id="tile" src="./images/wood.jpg">
         <img id="menu" src="./images/menu.jpg">
+        <audio id="museum" src="./sound/museum.mp3" crossorigin="anonymous"></audio>
       </a-assets>
 
       <a-asset-item id="sunflower-gltf" src="./models/sunflower/scene.gltf"></a-asset-item>
@@ -36,7 +37,7 @@
       <a-entity id="head" camera wasd-controls look-controls></a-entity>
       <!-- hand controls -->
       <a-entity id="left-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
-      <a-entity id="right-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+      <a-entity id="right-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" sound="src: #button4; on: teleported"></a-entity>
     </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
