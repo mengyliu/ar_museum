@@ -34,14 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
   pictures.forEach(p => setPictureEvent(p))
 
   let cameraRig = document.querySelector("#cameraRig");
-  let camera = document.querySelector("#camera");
+  let camera = document.querySelector("#head");
   let waypoint = document.querySelector("#waypoint");
 
   //attach gaze fuse handle to waypoint
   waypoint.addEventListener("click", function(e) {
     console.log("haha")
     // move the camera rig to the new location
-    cameraRig.setAttribute("position", "0 1.8 0");
+    cameraRig.setAttribute("position", "0 1.5 0");
   });
 
 

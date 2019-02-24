@@ -23,15 +23,15 @@
       <a-entity id="light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
       <!-- Controls -->
       <a-entity id="cameraRig" position="0 1.8 10">
-        <a-entity camera id="camera" look-controls wasd-controls>
+        <a-entity camera id="head" look-controls wasd-controls>
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
                     geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
                     material="color: white; shader: flat">
           </a-entity>
         </a-entity>
         <!-- hand controls -->
-        <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
-      <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
+        <a-entity id="left-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
+      <a-entity id="right-hand" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
         </a-entity>
       
       <!-- sky -->
