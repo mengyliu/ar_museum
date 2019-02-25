@@ -7,7 +7,23 @@
 //get random position
 //get random rotation
 //add to the scene
-
+registerAframeClickDragComponent(window.AFRAME);
+AFRAME.registerComponent("phase-shift", {
+    init: function() {
+      console.warn("installing phase shift");
+      var el = this.el;
+      el.addEventListener("gripdown", function() {
+        el.setAttribute("collision-filter", {
+          collisionForces: true
+        });
+      });
+      el.addEventListener("gripup", function() {
+        el.setAttribute("collision-filter", {
+          collisionForces: false
+        });
+      });
+    }
+  });
 document.addEventListener('DOMContentLoaded', function() {
 
 
@@ -66,20 +82,5 @@ document.addEventListener('DOMContentLoaded', function() {
   //   });
   // });
 
-  AFRAME.registerComponent("phase-shift", {
-    init: function() {
-      console.warn("installing phase shift");
-      var el = this.el;
-      el.addEventListener("gripdown", function() {
-        el.setAttribute("collision-filter", {
-          collisionForces: true
-        });
-      });
-      el.addEventListener("gripup", function() {
-        el.setAttribute("collision-filter", {
-          collisionForces: false
-        });
-      });
-    }
-  });
+  
 });
