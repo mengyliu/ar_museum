@@ -9,10 +9,12 @@
     <script src="https://unpkg.com/aframe-environment-component@1.1.0/dist/aframe-environment-component.min.js"></script>
     <script src="https://unpkg.com/super-hands@3.0.0/dist/super-hands.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
+    <!--     mirror -->
+    <script src="https://unpkg.com/aframe-mirror-component/dist/aframe-mirror-component.min.js"></script> 
   </head>
   <body>   
-    <a-scene sound="src: #museum; on: click; loop: true; rolloffFactor: 0">
-      <a-entity environment="preset: forest; lightPosition: -0.629 5.702 11.724; groundColor: #445; grid: cross"></a-entity>
+    <a-scene sound="src: #laser; on: click; loop: true; rolloffFactor: 0 poolSize: 2">
+      <a-entity environment="preset: starry; lightPosition: -0.629 5.702 11.724;lighting: none; groundColor:#2b425d; grid:cross"></a-entity>
       <a-assets>
         <img id="tile" src="./images/wood.jpg">
         <img id="menu" src="./images/menu.jpg">
@@ -21,7 +23,10 @@
       </a-assets>
 
       <a-asset-item id="sunflower-gltf" src="./models/sunflower/scene.gltf"></a-asset-item>
-      <a-entity id="light" light="type: directional; color: #FFF; intensity: 0.6" position="-0.5 1 1"></a-entity>
+
+      <!--       ambient light -->
+      <a-entity id="light" light="type: ambient; color: #FFF; intensity: 1.1" position="0 0 0"></a-entity>
+<!--       <a-entity id="directionlight" light="type: directional; color: #FFF; intensity: 0.2; shadowCameraVisible: true; castShadow: true;" position="4.092 5.053 10.383" rotation="-26.92 0 0"></a-entity> -->
       <!-- Controls -->
 <!--       <a-entity id="cameraRig" position="0 1.8 10">
         <a-entity camera id="head" look-controls wasd-controls>
@@ -33,69 +38,96 @@
         <a-entity id="left-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
         <a-entity id="right-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
       </a-entity> -->
-      <a-entity id="cameraRig" position="0 1.5 10">
+      <a-entity id="cameraRig" position="0 1.5 20">
       <!-- camera -->
-      <a-entity id="head" camera wasd-controls look-controls></a-entity>
-      <!-- hand controls -->
-      <a-entity id="left-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" sound="src: #laser; on: teleported"></a-entity>
-      <a-entity id="right-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" sound="src: #laser; on: teleported"></a-entity>
-    </a-entity>
+        <a-entity id="head" camera wasd-controls look-controls>
+          <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
+                    geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03;"
+                    material="color: white; shader: flat"></a-entity>
+        </a-entity>
+        <!-- hand controls -->
+        <a-entity id="left-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" sound="src: #laser; on: teleported"></a-entity>
+        <a-entity id="right-hand" laser-controls line="color: white; opacity: 0.25" teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;" sound="src: #laser; on: teleported"></a-entity>
+      </a-entity>
       <!-- sky -->
       <a-sky color="#c4c7ca"></a-sky>
 
       <!-- sunflower -->
-      <a-entity hoverable grabbable stretchable draggable dropppable class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.105 0.866 6.126" rotation="0 -19 0" ></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.90 0.8 6.126" rotation="0 -19 0"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.957 0.250 6.522" rotation="0 -34.688 0"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.275 0.071 6.652" rotation="0 -26.832 0"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.526 -0.061 6.161"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.900 0.071 5.515" rotation="0 39.300 0"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="1.3 0.64 5.515" rotation="0 12.640 0"></a-entity>
-      <a-entity click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="0.947 0.5 5.769" rotation="0 13.695 0"></a-entity>
+      <a-entity sound="src: #laser; on: click; poolSize: 2" hoverable grabbable stretchable draggable dropppable class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="7.467 0.869 11.218" rotation="0 -19 0" ></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.90 0.8 11.126" rotation="0 -19 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.957 0.250 11.522" rotation="0 -34.688 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="7.275 0.071 11.652" rotation="0 -26.832 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.526 -0.061 11.161"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.900 0.071 10.515" rotation="0 39.300 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.485 0.937 10.515" rotation="0 12.640 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" click-drag class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.947 0.5 10.769" rotation="0 13.695 0"></a-entity>
 
       
       <!-- ground -->
-      <a-entity id="groud" static-body click-drag material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0.01 0" rotation="-90 0 0" geometry="primitive:plane;width:20;height:20" scale="0.4, 0.4, 1"></a-entity>
+      <a-entity id="groud" static-body click-drag material="src:#tile; repeat:10 10; roughness:0.2;" position="0 0.03 0" rotation="-90 0 0" geometry="primitive:plane;width:10;height:10" scale="2 2 1"></a-entity>
 
-      <!-- monet -->
-      <a-entity>
-        <a-plane id="monet" class="picture" color="#FFF" src="./images/monet.jpg" position="0 2.6 -3.8" height="1.8465" width="1.5">
-          <a-plane id="monetPanel" visible="false" color="#FFF" src="./images/monet_panel.jpg" position="-1.85 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
-          <!-- <a-plane id="nametag" color="#FFF" position="-1.522 0.341 -0.234" rotation="0 10 0" height="0.4" width="1.1">
-            <a-text value="Mengyao" position="-0.442 -0.058 0.237" color="#A0A0A0"></a-text>
-          </a-plane> -->
-        </a-plane>
-      </a-entity>
+      <a-plane id="groudOut" color="#2b425d" static-body position="0 0 0" rotation="-90 0 0" scale="30 30 1"></a-plane>
 
-      <!-- renoir -->
+      <!-- sunflower -->
       <a-entity>
-        <a-plane id="renoir" class="picture" color="#FFF" src="./images/renoir.jpg" rotation="0 90 0" position="-3.8 2.6 0" height="1.8465" width="1.5">
+          <a-plane id="monet" class="picture" scale="0.8 0.8 1"color="#FFF" src="./images/sunflower.jpg" position="0 2.5 -9.5" height="2.667" width="2.022">
+            <a-plane id="monetPanel" visible="false" color="#FFF" src="./images/monet_panel.jpg" position="-1.85 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
+          </a-plane>
+        </a-entity>
+
+      <!-- wheat -->
+      <a-entity>
+        <a-plane id="renoir" class="picture" color="#FFF" src="./images/wheat.jpg" rotation="0 90 0" position="-9.5 2.5 0" height="1.839" width="2.412" scale='0.8 0.8 1'>
           <a-plane id="renoirPanel" visible="false" color="#FFF" src="./images/renoir_panel.jpg" position="-1.85 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
         </a-plane>
       </a-entity>
 
-      <!-- gogh -->
+      <!-- bedroom -->
       <a-entity>
-        <a-plane id="gogh" class="picture" color="#FFF" src="./images/gogh.jpg" rotation="0 -90 0" position="3.8 2.6 0" height="1.6" width="2">
+        <a-plane id="gogh" class="picture" color="#FFF" src="./images/bedroom.jpg" rotation="0 -90 0" position="9.5 2.5 0" height="1.464" width="1.920">
           <a-plane id="goghPanel" visible="false" color="#FFF" src="./images/gogh_panel.jpg" position="-2.1 0.5 0.1" rotation="0 10 0" height="0.62" width="2"></a-plane>
         </a-plane>
       </a-entity>
 
 
-      <!-- walls -->
-      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="2.5 2.5 4" height="5" depth="0.1" width="3"></a-box> 
-      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="-2.5 2.5 4" height="5" depth="0.1" width="3"></a-box> 
-      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 4.5 4" height="1" depth="0.1" width="2"></a-box>        
-      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="4 2.5 0" height="5" depth="0.1" width="8"></a-box>
-      <a-box static-body color="#CCC" src="./images/wall.jpg" position="0 2.5 -4" height="5" depth="0.1" width="8"></a-box>
-      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 -90 0" position="-4 2.5 0" height="5" depth="0.1" width="8"></a-box>
+      <!-- walls dc9f11-->
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 -90 0" position="-10 2.5 0" height="6" depth="0.1" width="20">
+        <a-plane color="#CCC" rotation="0 180 0" position="0 0 -0.06" height="6" width="20.12"></a-plane>
+      </a-box>
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="6.5 2.5 9.75" height="6" depth="0.5" width="7">
+        <a-plane color="#ccc" rotation="0 180 0" position="0 0 -0.252" height="6" width="7.15"></a-plane>
+      </a-box> 
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="-6.5 2.5 9.75" height="6" depth="0.5" width="7">
+        <a-plane color="#ccc" rotation="0 180 0" position="0 0 -0.252" height="6" width="7.15"></a-plane>
+      </a-box> 
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="180 0 0" position="0 4.5 9.75" height="2" depth="0.5" width="6">
+        <a-plane color="#ccc" rotation="0 180 0" position="0 0 -0.252" height="2" width="6"></a-plane>
+      </a-box>  
 
+      <a-box static-body color="#CCC" src="./images/wall.jpg" rotation="0 -90 0" position="10 2.5 0" height="6" depth="0.1" width="20">
+        <a-plane color="#CCC" rotation="0 180 0" position="0 0 -0.06" height="6" width="20.12"></a-plane>
+      </a-box>
 
-      <a-box position="2 1 6" rotation="0 -10 0" color="#000" depth="0.5" height="2" width="2">
+      <a-box static-body color="#CCC" src="./images/wall.jpg" position="0 2.5 -10" height="6" depth="0.1" width="20">
+        <a-plane color="#CCC" rotation="0 180 0" position="0 0 -0.06" height="6" width="20.12"></a-plane>
+      </a-box>
+
+  
+
+      <a-box position="5 1 11" rotation="0 -10 0" color="#000" depth="0.5" height="2" width="2">
         <a-plane color="#FFF" src="./images/logo.png" position="0 0 0.26" height="2" width="2"></a-plane>
       </a-box>
+
       <a-cylinder id="waypoint" color="grey" height="0.05" radius="0.5" position="0 0 -0.438"></a-cylinder>
       
+<!--       sunflower field -->
+      <a-plane id="field" position="0 0.4 0" scale="8 8 1" color="#000"rotation="-90 0 0"></a-plane>
+
+      <a-plane rotation="0 90 0" scale="8 6 1" position="4 3 0" material="opacity: 0.0; transparent: true"></a-plane>
+      <a-plane mirror rotation="180 90 0" scale="8 6 1" position="-4 3 0" material="opacity: 0.0; transparent: true"></a-plane>
+      <a-plane mirror rotation="180 0 0" scale="8 6 1" position="0 3 -4" material="opacity: 0.0; transparent: true"></a-plane>
+      <a-plane scale="8 6 1" position="0 3 4" material="opacity: 0.0; transparent: true"></a-plane>
+
 
     </a-scene>
     <script src="./js/script.js"></script>
