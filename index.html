@@ -23,7 +23,6 @@
         <img id="menu" src="./images/menu.jpg">
         <audio id="museum" src="./sound/museum.mp3" crossorigin="anonymous"></audio>
         <audio id="laser" src="./sound/laser.mp3" crossorigin="anonymous"></audio>
-        
         <a-mixin id="touch" physics-collider phase-shift collision-filter="collisionForces: false" static-body="shape: sphere; sphereRadius: 0.02" super-hands="colliderEvent: collisions;     colliderEventProperty: els; colliderEndEvent: collisions; colliderEndEventProperty: clearedEls;"></a-mixin>
         <a-mixin id="draggable" hoverable grabbable stretchable draggable event-set__hoveron="_event: hover-start; material.opacity: 0.7; transparent: true" event-set__hoveroff="_event: hover-end; material.opacity: 1; transparent: false"
       dynamic-body shadow></a-mixin>
@@ -45,7 +44,7 @@
         <a-entity id="left-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
         <a-entity id="right-hand" laser-controls teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head;"></a-entity>
       </a-entity> -->
-      <a-entity id="cameraRig" position="4.3 0 12">
+      <a-entity id="cameraRig" position="4.3 0.1 12.5">
       <!-- camera -->
         <a-entity id="head" camera wasd-controls look-controls>
           <a-entity cursor="fuse: true; fuseTimeout: 3000;" position="0 0 -2"
@@ -63,14 +62,14 @@
 
       <!-- sunflower -->
       <a-entity mixin="draggable" sound="src: #laser; on: click; poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="7.467 0.869 11.218" rotation="0 -19 0" ></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.90 0.8 11.126" rotation="0 -19 0"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.957 0.250 11.522" rotation="0 -34.688 0"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="7.275 0.071 11.652" rotation="0 -26.832 0"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.526 -0.061 11.161"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.900 0.071 10.515" rotation="0 39.300 0"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.485 0.937 10.515" rotation="0 12.640 0"></a-entity>
-      <a-entity mixin="draggable" sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.947 0.5 10.769" rotation="0 13.695 0"></a-entity>
-      <a-entity class="cube" mixin="draggable" position="3.947 0 11.577" material="color: red"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2"  class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.90 0.8 11.126" rotation="0 -19 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="6.957 0.250 11.522" rotation="0 -34.688 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="7.275 0.071 11.652" rotation="0 -26.832 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2"  class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.526 -0.061 11.161"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.900 0.071 10.515" rotation="0 39.300 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="4.485 0.937 10.515" rotation="0 12.640 0"></a-entity>
+      <a-entity sound="src: #laser; on: click poolSize: 2" class="sunflower" gltf-model="#sunflower-gltf" scale="0.005 0.005 0.005" position="3.947 0.5 10.769" rotation="0 13.695 0"></a-entity>
+<!--       <a-entity class="cube" mixin="cube" position="3.947 0 11.577" material="color: red"></a-entity> -->
 
       
       <!-- ground -->
